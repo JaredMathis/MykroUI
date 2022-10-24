@@ -1,11 +1,11 @@
-let file_path = process.argv[2];
-if (!file_path) {
+let function_name = process.argv[2];
+if (!function_name) {
     error('Expecting command line argument')
 }
 
 async function run() {
     let imported = await import('./' + string_replace_all(process.argv[2], '_', '/') + '.mjs');
-    imported
+    property_get(imported, function_name);
 }
 
 run();
