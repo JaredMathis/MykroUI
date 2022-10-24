@@ -8,7 +8,7 @@ if (!function_name) {
 let remaining_arguments = process.argv.slice(function_name_argument_index);
 
 async function run() {
-    const replaced = string_replace_all(process.argv[function_name_argument_index], '_', '/');
+    const replaced = string_replace_all(function_name, '_', '/');
     const module_path = './' + replaced + '.mjs';
     let imported = await import(module_path);
     let _function = property_get(imported, function_name);
