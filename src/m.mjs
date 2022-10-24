@@ -6,8 +6,7 @@ if (!function_name) {
     error('Expecting command line argument')
 }
 let remaining_arguments = process.argv
-.slice(function_name_argument_index + 1)
-.map(a => );
+.slice(function_name_argument_index + 1);
 
 async function run() {
     const replaced = function_name_to_path(function_name);
