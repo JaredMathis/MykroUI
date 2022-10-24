@@ -15,17 +15,21 @@ async function run() {
     let imported = await import(module_path);
     let _function = property_get(imported, function_name);
     await _function(...remaining_arguments);
+    await git_acp();
+}
+
+run();
+
+async function git_acp() {
     let commands = [
         'git add *',
         'git commit -m ' + new Date().toISOString(),
         'git push'
     ];
-    await for_each(commands, async command => {
+    await for_each(commands, async (command) => {
         console.log(await command_line(command));
     });
 }
-
-run();
 
 async function for_each(items, lambda) {
     for (let i of items) {
