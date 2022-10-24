@@ -21,9 +21,12 @@ async function run() {
 run();
 
 async function git_acp() {
+    const mykro_command = process.argv.slice(function_name_argument_index).join(' ');
+    const when = new Date().toISOString();
+    let commit_message = `${mykro_command} ${when}`;
     let commands = [
         'git add *',
-        `git commit -m "${process.argv.slice(function_name_argument_index).join(' ')} ${new Date().toISOString()}"`,
+        `git commit -m "${commit_message}"`,
         'git push'
     ];
     await for_each(commands, async (command) => {
