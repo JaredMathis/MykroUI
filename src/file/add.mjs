@@ -1,11 +1,16 @@
 import fs from 'fs';
 import {error} from '../error.mjs';
+import path from 'path';
 
-export function file_add(file_name) {
+export async function file_add(file_name) {
+    let directory_name = path.dirname(file_name);
+    if (!checkFileExists(file_name)) {
+        await fs.promises.mkdir(directory_name, { recursive: true });
+    }
     if (checkFileExists(file_name)) {
         error(`${file_name} exists`);
     }
-    fs.promises.writeFile(file_name, '');
+    await fs.promises.writeFile(file_name, '');
 }
 
 function checkFileExists(file) {

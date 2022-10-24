@@ -13,7 +13,7 @@ async function run() {
     const module_path = './' + replaced + '.mjs';
     let imported = await import(module_path);
     let _function = property_get(imported, function_name);
-    _function(...remaining_arguments)
+    await _function(...remaining_arguments)
 }
 
 run();
