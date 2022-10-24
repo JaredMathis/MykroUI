@@ -25,7 +25,7 @@ function function_name_to_path(function_name) {
 
 function property_get(obj, name) {
     let keys = Object.keys(obj);
-    console.log({keys,name});
+    // console.log({keys,name});
     if (!keys.includes(name)) {
         error('TODO');
     }
