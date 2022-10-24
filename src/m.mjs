@@ -19,7 +19,7 @@ async function run() {
 
 run();
 
-function function_name_to_path(name) {
+function function_name_to_path(function_name) {
     const replaced = string_replace_all(function_name, '_', '/');
     return replaced;
 }
