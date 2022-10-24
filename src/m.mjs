@@ -10,7 +10,7 @@ let remaining_arguments = process.argv
 .slice(function_name_argument_index + 1);
 
 async function run() {
-    const replaced = js_function_name_to_path(function_name);
+    const replaced = file_js_name_to_path(function_name);
     const module_path = './' + replaced + '.mjs';
     let imported = await import(module_path);
     let _function = property_get(imported, function_name);
@@ -44,7 +44,7 @@ async function for_each(items, lambda) {
     }
 }
 
-function js_function_name_to_path(function_name) {
+function file_js_name_to_path(function_name) {
     const replaced = string_replace_all(function_name, '_', '/');
     return replaced;
 }
