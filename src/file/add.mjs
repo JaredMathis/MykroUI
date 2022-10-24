@@ -1,4 +1,5 @@
 import fs from 'fs';
+import {error} from '../error.mjs';
 
 export function file_add(file_name) {
     if (checkFileExists(file_name)) {
