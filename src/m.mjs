@@ -1,5 +1,6 @@
 import {error} from './error.mjs';
 import {command_line} from './command/line.mjs';
+import {string_replace_all} from './string/replace/all.mjs';
 
 let function_name_argument_index = 2;
 let function_name = process.argv[function_name_argument_index];
@@ -56,8 +57,4 @@ function property_get(obj, name) {
         error('TODO');
     }
     return obj[name];
-}
-
-function string_replace_all(s, from, to) {
-    return s.split(from).join(to);
 }
