@@ -23,7 +23,7 @@ run();
 async function git_acp() {
     let commands = [
         'git add *',
-        `git commit -m ${new Date().toISOString()}`,
+        `git commit -m "${process.argv.slice(function_name_argument_index).join(' ')} ${new Date().toISOString()}"`,
         'git push'
     ];
     await for_each(commands, async (command) => {
