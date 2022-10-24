@@ -5,10 +5,12 @@ let function_name = process.argv[function_name_argument_index];
 if (!function_name) {
     error('Expecting command line argument')
 }
-let remaining_arguments = process.argv.slice(function_name_argument_index);
+let remaining_arguments = process.argv
+.slice(function_name_argument_index + 1)
+.map(a => );
 
 async function run() {
-    const replaced = string_replace_all(function_name, '_', '/');
+    const replaced = function_name_to_path(function_name);
     const module_path = './' + replaced + '.mjs';
     let imported = await import(module_path);
     let _function = property_get(imported, function_name);
@@ -16,6 +18,11 @@ async function run() {
 }
 
 run();
+
+function function_name_to_path(name) {
+    const replaced = string_replace_all(function_name, '_', '/');
+    return replaced;
+}
 
 function property_get(obj, name) {
     let keys = Object.keys(obj);
