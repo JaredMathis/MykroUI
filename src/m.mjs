@@ -1,6 +1,7 @@
 import {error} from './error.mjs';
 import {command_line} from './command/line.mjs';
 import {string_replace_all} from './string/replace/all.mjs';
+import { file_js_name_to_path } from './file/js/name/to/path.mjs';
 
 let function_name_argument_index = 2;
 let function_name = process.argv[function_name_argument_index];
@@ -43,11 +44,6 @@ async function for_each(items, lambda) {
     for (let i of items) {
         await lambda(i);
     }
-}
-
-function file_js_name_to_path(function_name) {
-    const replaced = string_replace_all(function_name, '_', '/');
-    return replaced;
 }
 
 function property_get(obj, name) {
