@@ -1,3 +1,3 @@
-export function api() {
+export function api(fuction_name) {
     
 }
