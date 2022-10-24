@@ -4,10 +4,10 @@ import path from 'path';
 
 export async function file_add(file_name) {
     let directory_name = path.dirname(file_name);
-    if (!checkFileExists(file_name)) {
+    if (!await checkFileExists(directory_name)) {
         await fs.promises.mkdir(directory_name, { recursive: true });
     }
-    if (checkFileExists(file_name)) {
+    if (await checkFileExists(file_name)) {
         error(`${file_name} exists`);
     }
     await fs.promises.writeFile(file_name, '');
