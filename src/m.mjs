@@ -28,7 +28,7 @@ async function git_acp() {
     ];
     await for_each(commands, async (command) => {
         const result = await command_line(command);
-        console.log(result);
+        console.log({result});
     });
 }
 
