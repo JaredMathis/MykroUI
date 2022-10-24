@@ -2,6 +2,7 @@ import {error} from './error.mjs';
 import {command_line} from './command/line.mjs';
 import { file_js_name_to_path } from './file/js/name/to/path.mjs';
 import { for_each } from './for/each.mjs';
+import { property_get } from './property/get.mjs';
 
 let function_name_argument_index = 2;
 let function_name = process.argv[function_name_argument_index];
@@ -38,12 +39,4 @@ async function git_acp() {
             result,
         });
     });
-}
-function property_get(obj, name) {
-    let keys = Object.keys(obj);
-    // console.log({keys,name});
-    if (!keys.includes(name)) {
-        error('TODO');
-    }
-    return obj[name];
 }
